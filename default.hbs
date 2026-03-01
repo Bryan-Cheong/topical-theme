@@ -27,30 +27,24 @@
                     <div class="gh-head-brand-wrapper">
                         {{#is "home"}}<h1 class="gh-head-logo">{{/is}}
                             <a {{^is "home" }}class="gh-head-logo" {{/is}} href="{{@site.url}}">
-                                <div class="logo-wrapper">
-                                    <span class="logo-text-main">
-                                        {{#if @site.logo}}
-                                            {{!-- Main Logo --}}
-                                            <img src="{{@site.logo}}" alt="{{@site.title}}">
-                                            
-                                            {{#if @custom.white_publication_logo_for_transparent_header}}
-                                                <img class="gh-head-logo-white" src="{{@custom.white_publication_logo_for_transparent_header}}" alt="{{@site.title}}">
-                                            {{/if}}
-                                        {{else}}
-                                            {{!-- Updated to show full site title instead of just 'Topical' --}}
-                                            {{#is "home"}}
-                                                {{@site.title}}
-                                            {{else is "tag"}}
-                                                    {{#tag}}{{name}}{{/tag}}
-                                            {{else is "post"}}
-                                                    {{#post}}{{primary_tag.name}}{{else}}{{@site.title}}{{/post}}
-                                            {{else}}
-                                                    {{@site.title}}
-                                            {{/is}}
-                                        {{/if}}
-                                    </span>
-                                    <span class="logo-text-hover">Back to Home</span>
-                                </div>
+                                {{#if @site.logo}}
+                                    {{!-- Main Logo --}}
+                                    <img src="{{@site.logo}}" alt="{{@site.title}}">
+                                    
+                                    {{#if @custom.white_publication_logo_for_transparent_header}}
+                                        <img class="gh-head-logo-white" src="{{@custom.white_publication_logo_for_transparent_header}}" alt="{{@site.title}}">
+                                    {{/if}}
+                                {{else}}
+                                    {{#is "home"}}
+                                        {{@site.title}}
+                                    {{else is "tag"}}
+                                            {{#tag}}{{name}}{{/tag}}
+                                    {{else is "post"}}
+                                            {{#post}}{{primary_tag.name}}{{else}}{{@site.title}}{{/post}}
+                                    {{else}}
+                                            {{@site.title}}
+                                    {{/is}}
+                                {{/if}}
                             </a>
                             {{#is "home"}}
                         </h1>{{/is}}
