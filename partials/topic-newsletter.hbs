@@ -1,0 +1,36 @@
+{{!-- 
+    Topic-Specific Newsletter Signup - Minimal Design
+    Shows inline newsletter CTA based on the current topic
+--}}
+
+{{#tag}}
+    {{!-- 1. ROBOTICS (Most Specific - Move this to the top) --}}
+    {{#match slug "~" "robotics"}}
+        <section class="gh-topic-newsletter">
+            <div class="gh-topic-newsletter-inner">
+                <span class="gh-topic-newsletter-text">Stay updated with Robotics</span>
+                {{!-- Ensure 'robotics' is the exact slug in Ghost Admin Newsletters --}}
+                <button class="gh-btn gh-topic-newsletter-btn" data-portal="signup/robotics">Subscribe</button>
+            </div>
+        </section>
+
+    {{!-- 2. STEM (General - 'robotics' removed from here) --}}
+    {{else match slug "~" "stem|science-experiments|astronomy-news|fun-math"}}
+        <section class="gh-topic-newsletter">
+            <div class="gh-topic-newsletter-inner">
+                <span class="gh-topic-newsletter-text">Stay updated with STEM for Kids</span>
+                <button class="gh-btn gh-topic-newsletter-btn" data-portal="signup/stem-for-kids">Subscribe</button>
+            </div>
+        </section>
+    {{/match}}
+
+    {{!-- 3. ASTRONOMY --}}
+    {{#match slug "~" "astronomy"}}
+        <section class="gh-topic-newsletter">
+            <div class="gh-topic-newsletter-inner">
+                <span class="gh-topic-newsletter-text">Stay updated with Astronomy</span>
+                <button class="gh-btn gh-topic-newsletter-btn" data-portal="signup/astronomy">Subscribe</button>
+            </div>
+        </section>
+    {{/match}}
+{{/tag}}

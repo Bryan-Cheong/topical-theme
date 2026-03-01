@@ -1,0 +1,20 @@
+{{#is "post"}}
+    {{!-- Find related posts within the same topic only, no cross-topic mixing --}}
+    {{#get "posts" include="authors" filter="primary_tag:{{primary_tag.slug}}+id:-{{id}}" limit="3" as |next|}}
+        {{#if next}}
+            <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h3 class="gh-pagehead-title">More from {{../primary_tag.name}}</h3>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                        {{#foreach next}}
+                            {{> "loop-grid" has_large_post=false}}
+                        {{/foreach}}
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    {{/get}}
+{{/is}}

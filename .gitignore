@@ -1,0 +1,24 @@
+# --- Dependencies ---
+node_modules/
+package-lock.json
+
+# --- Build & Distribution ---
+# Since you have a gulpfile, these are auto-generated from your source files
+dist/
+built/
+
+# --- Local Ghost Environment ---
+# Keeps local Ghost CLI noise out of your theme repo
+*.log
+ghost-local/
+content/
+core/
+versions/
+config.development.json
+config.production.json
+
+# --- System & IDE Files ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

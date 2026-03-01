@@ -1,0 +1,112 @@
+{{!< default}}
+
+<main class="gh-main gh-outer">
+    <div class="gh-inner">
+
+        {{!-- Browse by Topic - Editorial Style --}}
+        <section class="gh-home-topics">
+            <h2 class="gh-section-title">Browse by Topic</h2>
+
+            <div class="gh-home-topics-grid">
+                {{!-- STEM Topic Card --}}
+                <article class="gh-home-topic-card">
+                    {{#get "tags" filter="slug:stem" include="count.posts" limit="1"}}
+                        {{#foreach tags}}
+                            <a class="gh-home-topic-link" href="{{url}}">
+                                {{!-- Pull the feature image from the tag --}}
+                                {{#if feature_image}}
+                                    <figure class="gh-home-topic-image">
+                                        <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
+                                    </figure>
+                                {{/if}}
+                                <div class="gh-home-topic-content">
+                                    {{!-- This pulls from the "Name" field in Ghost Admin --}}
+                                    <h3 class="gh-home-topic-title">{{name}}</h3>
+                    
+                                    {{!-- This pulls from the "Description" field in Ghost Admin --}}
+                                    <p class="gh-home-topic-excerpt">{{description}}</p>
+
+                                    {{!-- This pulls the count of posts from the TAG --}}
+                                    <span class="gh-home-topic-meta">{{count.posts}} articles</span>
+                                </div>
+                            </a>
+                        {{/foreach}}
+                    {{/get}}
+                    <nav class="gh-home-topic-subtopics">
+                        <a href="/stem/#robotics-news">Robotics News</a>
+                        <a href="/stem/#science-experiments">Science Experiments</a>
+                        <a href="/stem/#astronomy-news">Astronomy News</a>
+                        <a href="/stem/#fun-math">Fun Math</a>
+                    </nav>
+                </article>
+
+                {{!-- Robotics Topic Card --}}
+                <article class="gh-home-topic-card">
+                    {{#get "tags" filter="slug:robotics" include="count.posts" limit="1"}}
+                        {{#foreach tags}}
+                            <a class="gh-home-topic-link" href="{{url}}">
+                                {{!-- Pull the feature image from the tag --}}
+                                {{#if feature_image}}
+                                    <figure class="gh-home-topic-image">
+                                        <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
+                                    </figure>
+                                {{/if}}
+                                <div class="gh-home-topic-content">
+                                    {{!-- This pulls from the "Name" field in Ghost Admin --}}
+                                    <h3 class="gh-home-topic-title">{{name}}</h3>
+                    
+                                    {{!-- This pulls from the "Description" field in Ghost Admin --}}
+                                    <p class="gh-home-topic-excerpt">{{description}}</p>
+
+                                    {{!-- This pulls the count of posts from the TAG --}}
+                                    <span class="gh-home-topic-meta">{{count.posts}} articles</span>
+                                </div>
+                            </a>
+                        {{/foreach}}
+                    {{/get}}
+                    <nav class="gh-home-topic-subtopics">
+                        <a href="/robotics/#by-age">By Age</a>
+                        <a href="/robotics/#kids-activities">Kids Activities</a>
+                        <a href="/robotics/#robotics-non-technical-parent">Non-Technical Parent</a>
+                        <a href="/robotics/#product-deep-dives">Product Deep-Dives</a>
+                        <a href="/robotics/#brain-development">Brain Development</a>
+                    </nav>
+                </article>
+
+                {{!-- Astronomy Topic Card --}}
+                <article class="gh-home-topic-card">
+                    {{#get "tags" filter="slug:astronomy" include="count.posts" limit="1"}}
+                        {{#foreach tags}}
+                            <a class="gh-home-topic-link" href="{{url}}">
+                                {{!-- Pull the feature image from the tag --}}
+                                {{#if feature_image}}
+                                    <figure class="gh-home-topic-image">
+                                        <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
+                                    </figure>
+                                {{/if}}
+                                <div class="gh-home-topic-content">
+                                    {{!-- This pulls from the "Name" field in Ghost Admin --}}
+                                    <h3 class="gh-home-topic-title">{{name}}</h3>
+                    
+                                    {{!-- This pulls from the "Description" field in Ghost Admin --}}
+                                    <p class="gh-home-topic-excerpt">{{description}}</p>
+
+                                    {{!-- This pulls the count of posts from the TAG --}}
+                                    <span class="gh-home-topic-meta">{{count.posts}} articles</span>
+                                </div>
+                            </a>
+                        {{/foreach}}
+                    {{/get}}
+                    <nav class="gh-home-topic-subtopics">
+                        <a href="/astronomy/#all-about-planets-and-more">All About Planets (and More)</a>
+                        <a href="/astronomy/#fun-facts-did-you-know">Fun Facts: Did you know?</a>
+                        <a href="/astronomy/#cloudy-nights-stories">Cloudy Nights Stories</a>
+                        <a href="/astronomy/#space-kids-activities">Space Kids Activities</a>
+                        <a href="/astronomy/#book-reviews">Book Reviews</a>
+                    </nav>
+                </article>
+            </div>
+        </section>
+
+    </div>
+</main>
