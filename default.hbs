@@ -55,154 +55,21 @@
                 </div>
 
                 <nav class="gh-head-menu">
-                    {{!-- Show subtopic navigation on STEM/Robotics tag pages, otherwise show regular nav --}}
-                    {{#is "tag"}}
-                    {{#tag}}
-                    {{#match slug "stem"}}
-                    {{!-- STEM subtopic anchor links --}}
-                    <div class="gh-subtopic-header-nav">
-                        <a href="#robotics-news">Robotics News</a>
-                        <a href="#science-experiments">Science Experiments</a>
-                        <a href="#astronomy-news">Astronomy News</a>
-                        <a href="#fun-math">Fun Math</a>
-                    </div>
-                    {{else match slug "robotics"}}
-                    {{!-- Robotics subtopic anchor links --}}
-                    <div class="gh-subtopic-header-nav">
-                        <a href="#by-age">By Age</a>
-                        <a href="#kids-activities">Kids Activities</a>
-                        <a href="#robotics-non-technical-parent">Non-Technical Parent</a>
-                        <a href="#product-deep-dives">Product Deep-Dives</a>
-                        <a href="#brain-development">Brain Development</a>
-                    </div>
-                    {{else match slug "astronomy"}}
-                    {{!-- Astronomy subtopic anchor links --}}
-                    <div class="gh-subtopic-header-nav">
-                        <a href="#all-about-planets-and-more">All About Planets (and More)</a>
-                        <a href="#fun-facts-did-you-know">Fun Facts: Did you know?</a>
-                        <a href="#cloudy-nights-stories">Cloudy Nights Stories</a>
-                        <a href="#space-kids-activities">Space Kids Activities</a>
-                        <a href="#book-reviews">Book Reviews</a>
-                    </div>
+                    {{#is "tag, post"}}
+                        {{#if post}}
+                            {{#post}}{{#primary_tag}}{{> "subtopic-nav"}}{{/primary_tag}}{{/post}}
+                        {{else}}
+                            {{#tag}}{{> "subtopic-nav"}}{{/tag}}
+                        {{/if}}
                     {{else}}
-                    {{!-- Regular navigation for other tag pages --}}
-                    {{navigation}}
-                    <div class="gh-topic-nav">
-                        <div class="gh-topic-nav-item">
-                            <a href="/stem/" class="gh-topic-nav-link">STEM for Kids <svg
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg></a>
-                            <div class="gh-topic-dropdown">
-                                <a href="/stem/">All STEM</a>
-                                <div class="gh-topic-dropdown-divider"></div>
-                                <a href="/stem/#robotics-news">Robotics News</a>
-                                <a href="/stem/#science-experiments">Science Experiments</a>
-                                <a href="/stem/#astronomy-news">Astronomy News</a>
-                                <a href="/stem/#fun-math">Fun Math</a>
-                            </div>
-                        </div>
-                        <div class="gh-topic-nav-item">
-                            <a href="/robotics/" class="gh-topic-nav-link">Robotics <svg
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg></a>
-                            <div class="gh-topic-dropdown">
-                                <a href="/robotics/">All Robotics</a>
-                                <div class="gh-topic-dropdown-divider"></div>
-                                <a href="/robotics/#by-age">By Age</a>
-                                <a href="/robotics/#kids-activities">Kids Activities</a>
-                                <a href="/robotics/#robotics-non-technical-parent">Non-Technical Parent</a>
-                                <a href="/robotics/#product-deep-dives">Product Deep-Dives</a>
-                                <a href="/robotics/#brain-development">Brain Development</a>
-                            </div>
-                        </div>
-                        <div class="gh-topic-nav-item">
-                            <a href="/astronomy/" class="gh-topic-nav-link">Astronomy <svg
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg></a>
-                            <div class="gh-topic-dropdown">
-                                <a href="/astronomy/">All Astronomy</a>
-                                <div class="gh-topic-dropdown-divider"></div>
-                                <a href="/astronomy/#all-about-planets-and-more">All About Planets (and More)</a>
-                                <a href="/astronomy/#fun-facts-did-you-know">Fun Facts: Did you know?</a>
-                                <a href="/astronomy/#cloudy-nights-stories">Cloudy Nights Stories</a>
-                                <a href="/astronomy/#space-kids-activities">Space Kids Activities</a>
-                                <a href="/astronomy/#book-reviews">Book Reviews</a>
-                            </div>
-                        </div>
-                    </div>
-                    {{/match}}
-                    {{/tag}}
-                    {{else}}
-                    {{!-- Regular navigation for non-tag pages --}}
-                    {{navigation}}
-                    <div class="gh-topic-nav">
-                        <div class="gh-topic-nav-item">
-                            <a href="/stem/" class="gh-topic-nav-link">STEM for Kids <svg
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg></a>
-                            <div class="gh-topic-dropdown">
-                                <a href="/stem/">All STEM</a>
-                                <div class="gh-topic-dropdown-divider"></div>
-                                <a href="/stem/#robotics-news">Robotics News</a>
-                                <a href="/stem/#science-experiments">Science Experiments</a>
-                                <a href="/stem/#astronomy-news">Astronomy News</a>
-                                <a href="/stem/#fun-math">Fun Math</a>
-                            </div>
-                        </div>
-                        <div class="gh-topic-nav-item">
-                            <a href="/robotics/" class="gh-topic-nav-link">Robotics <svg
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg></a>
-                            <div class="gh-topic-dropdown">
-                                <a href="/robotics/">All Robotics</a>
-                                <div class="gh-topic-dropdown-divider"></div>
-                                <a href="/robotics/#by-age">By Age</a>
-                                <a href="/robotics/#kids-activities">Kids Activities</a>
-                                <a href="/robotics/#robotics-non-technical-parent">Non-Technical Parent</a>
-                                <a href="/robotics/#product-deep-dives">Product Deep-Dives</a>
-                                <a href="/robotics/#brain-development">Brain Development</a>
-                            </div>
-                        </div>
-                        <div class="gh-topic-nav-item">
-                            <a href="/astronomy/" class="gh-topic-nav-link">Astronomy <svg
-                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <polyline points="6 9 12 15 18 9"></polyline>
-                                </svg></a>
-                            <div class="gh-topic-dropdown">
-                                <a href="/astronomy/">All Astronomy</a>
-                                <div class="gh-topic-dropdown-divider"></div>
-                                <a href="/astronomy/#all-about-planets-and-more">All About Planets (and More)</a>
-                                <a href="/astronomy/#fun-facts-did-you-know">Fun Facts: Did you know?</a>
-                                <a href="/astronomy/#cloudy-nights-stories">Cloudy Nights Stories</a>
-                                <a href="/astronomy/#space-kids-activities">Space Kids Activities</a>
-                                <a href="/astronomy/#book-reviews">Book Reviews</a>
-                            </div>
-                        </div>
-                    </div>
+                        {{!-- Home page and other pages get regular navigation plus dropdowns --}}
+                        {{navigation}}
                     {{/is}}
 
                     {{#unless @site.members_enabled}}
-                    {{#match @custom.navigation_layout "Stacked"}}
-                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{>
-                        "icons/search"}}</button>
-                    {{/match}}
+                        {{#match @custom.navigation_layout "Stacked"}}
+                            <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search>{{> "icons/search"}}</button>
+                        {{/match}}
                     {{/unless}}
                 </nav>
 

@@ -307,26 +307,6 @@ body:not(.home-template) .gh-topic-grid .gh-card {
     color: var(--color-secondary-text);
 }
 
-.gh-topic-minimal .gh-card {
-    max-width: 720px;
-}
-
-.gh-topic-minimal .gh-card-link {
-    display: block;
-}
-
-.gh-topic-minimal .gh-card-title {
-    font-size: 1.6rem;
-    font-weight: 400;
-    line-height: 1.6;
-    letter-spacing: -0.01em;
-    word-break: break-word;
-}
-
-.gh-topic-minimal .gh-card+.gh-card {
-    margin-top: 16px;
-}
-
 /* Global elements used for both grid and list style sections */
 
 .gh-topic-link {
@@ -808,14 +788,6 @@ body:not(.home-template) .gh-topic-grid .gh-card {
 
     .gh-topic-grid .gh-card:not(.large) :where(.gh-card-author, .gh-card-footer-sep) {
         display: none;
-    }
-
-    .gh-topic-minimal .gh-card + .gh-card {
-        margin-top: 12px;
-    }
-
-    .gh-topic-minimal .gh-card-title {
-        font-size: 1.5rem;
     }
 
     .gh-read-next {
@@ -1466,29 +1438,30 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
         display: block;
         padding: 10px 0;
     }
-}
 
-/* Force the topic links to stack vertically ONLY when the burger menu is open */
-.is-head-open .gh-topic-nav {
-    flex-direction: column;
-    gap: 16px;
-    margin: 32px 0;
-    width: 100%;
-    text-align: center;
-}
 
-/* Force the subtopic links to stack vertically ONLY when the burger menu is open */
-.is-head-open .gh-subtopic-header-nav {
-    flex-direction: column; /* This is the key change to vertical */
-    gap: 16px;
-    margin: 32px 0;
-    width: 100%;
-    text-align: center;
-}
+    /* 6. Force the topic links to stack vertically ONLY when the burger menu is open */
+    .is-head-open .gh-topic-nav {
+        flex-direction: column;
+        gap: 16px;
+        margin: 32px 0;
+        width: 100%;
+        text-align: center;
+    }
 
-/* Makes the links easier to tap in the menu */
-.is-head-open .gh-subtopic-header-nav a {
-    font-size: 2.2rem;
-    display: block;
-    padding: 8px 0;
+    /* 7. Force the subtopic links to stack vertically ONLY when the burger menu is open */
+    .is-head-open .gh-subtopic-header-nav {
+        flex-direction: column; /* This is the key change to vertical */
+        gap: 16px;
+        margin: 32px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 8. Makes the links easier to tap in the menu */
+    .is-head-open .gh-subtopic-header-nav a {
+        font-size: 2.2rem;
+        display: block;
+        padding: 8px 0;
+    }
 }

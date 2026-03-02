@@ -44,7 +44,7 @@
             {{!-- STEM Topic - One Pager with Subtopic Sections --}}
             {{#match slug "stem"}}
                 {{!-- 1. Robotics News --}}
-                <section id="robotics-news" class="gh-subtopic-section">
+                <section id="stem-robotics-news" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Robotics News</h2>
                     {{#get "posts" filter="tag:hash-subtopic-robotics-news" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -60,7 +60,7 @@
                 </section>
 
                 {{!-- 2. Science Experiments --}}
-                <section id="science-experiments" class="gh-subtopic-section">
+                <section id="stem-science-experiments" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Science Experiments</h2>
                     {{#get "posts" filter="tag:hash-subtopic-science-experiments" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -76,7 +76,7 @@
                 </section>
 
                 {{!-- 3. Astronomy News --}}
-                <section id="astronomy-news" class="gh-subtopic-section">
+                <section id="stem-astronomy-news" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Astronomy News</h2>
                     {{#get "posts" filter="tag:hash-subtopic-astronomy-news" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -92,7 +92,7 @@
                 </section>
 
                 {{!-- 4. Fun Math --}}
-                <section id="fun-math" class="gh-subtopic-section">
+                <section id="stem-fun-math" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Fun Math</h2>
                     {{#get "posts" filter="tag:hash-subtopic-fun-math" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -114,7 +114,7 @@
             {{!-- Robotics Topic - One Pager with Subtopic Sections --}}
             {{#match slug "robotics"}}
                 {{!-- 1. By Age --}}
-                <section id="by-age" class="gh-subtopic-section">
+                <section id="robotics-by-age" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">By Age</h2>
                     {{#get "posts" filter="tag:hash-subtopic-by-age" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -130,7 +130,7 @@
                 </section>
 
                 {{!-- 2. Kids Activities --}}
-                <section id="kids-activities" class="gh-subtopic-section">
+                <section id="robotics-kids-activities" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Kids Activities</h2>
                     {{#get "posts" filter="tag:hash-subtopic-kids-activities" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -162,7 +162,7 @@
                 </section>
 
                 {{!-- 4. Product Deep-Dives --}}
-                <section id="product-deep-dives" class="gh-subtopic-section">
+                <section id="robotics-product-deep-dives" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Product Deep-Dives</h2>
                     {{#get "posts" filter="tag:hash-subtopic-product-deep-dives" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -178,7 +178,7 @@
                 </section>
 
                 {{!-- 5. Brain Development --}}
-                <section id="brain-development" class="gh-subtopic-section">
+                <section id="robotics-brain-development" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Brain Development</h2>
                     {{#get "posts" filter="tag:hash-subtopic-brain-development" limit="6" include="tags,authors"}}
                         {{#if posts}}
@@ -200,9 +200,9 @@
             {{!-- Astronomy Topic - One Pager with Subtopic Sections --}}
             {{#match slug "astronomy"}}
                 {{!-- 1. All About Planets (and More) --}}
-                <section id="all-about-planets-and-more" class="gh-subtopic-section">
+                <section id="astronomy-all-about-planets-and-more" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">All About Planets (and More)</h2>
-                    {{#get "posts" filter="tag:all-about-planets-and-more" limit="6" include="tags,authors"}}
+                    {{#get "posts" filter="tag:hash-subtopic-all-about-planets-and-more" limit="6" include="tags,authors"}}
                         {{#if posts}}
                             <div class="gh-topic-content gh-topic-grid">
                                 {{#foreach posts}}
@@ -216,9 +216,9 @@
                 </section>
 
                 {{!-- 2. Fun Facts: Did you know? --}}
-                <section id="fun-facts-did-you-know" class="gh-subtopic-section">
+                <section id="astronomy-fun-facts-did-you-know" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Fun Facts: Did you know?</h2>
-                    {{#get "posts" filter="tag:fun-facts-did-you-know" limit="6" include="tags,authors"}}
+                    {{#get "posts" filter="tag:hash-subtopic-fun-facts-did-you-know" limit="6" include="tags,authors"}}
                         {{#if posts}}
                             <div class="gh-topic-content gh-topic-grid">
                                 {{#foreach posts}}
@@ -232,9 +232,9 @@
                 </section>
 
                 {{!-- 3. Cloudy Nights Stories --}}
-                <section id="cloudy-nights-stories" class="gh-subtopic-section">
+                <section id="astronomy-cloudy-nights-stories" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Cloudy Nights Stories</h2>
-                    {{#get "posts" filter="tag:cloudy-nights-stories" limit="6" include="tags,authors"}}
+                    {{#get "posts" filter="tag:hash-subtopic-cloudy-nights-stories" limit="6" include="tags,authors"}}
                         {{#if posts}}
                             <div class="gh-topic-content gh-topic-grid">
                                 {{#foreach posts}}
@@ -248,9 +248,9 @@
                 </section>
 
                 {{!-- 4. Space Kids Activities --}}
-                <section id="space-kids-activities" class="gh-subtopic-section">
+                <section id="astronomy-space-kids-activities" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Space Kids Activities</h2>
-                    {{#get "posts" filter="tag:space-kids-activities" limit="6" include="tags,authors"}}
+                    {{#get "posts" filter="tag:hash-subtopic-space-kids-activities" limit="6" include="tags,authors"}}
                         {{#if posts}}
                             <div class="gh-topic-content gh-topic-grid">
                                 {{#foreach posts}}
@@ -264,9 +264,9 @@
                 </section>
 
                 {{!-- 5. Book Reviews --}}
-                <section id="book-reviews" class="gh-subtopic-section">
+                <section id="astronomy-book-reviews" class="gh-subtopic-section">
                     <h2 class="gh-subtopic-title">Book Reviews</h2>
-                    {{#get "posts" filter="tag:book-reviews" limit="6" include="tags,authors"}}
+                    {{#get "posts" filter="tag:hash-subtopic-book-reviews" limit="6" include="tags,authors"}}
                         {{#if posts}}
                             <div class="gh-topic-content gh-topic-grid">
                                 {{#foreach posts}}

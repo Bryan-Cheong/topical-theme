@@ -1,0 +1,27 @@
+{{!-- partials/subtopic-nav.hbs --}}
+
+{{!-- Fetch tags starting with the current tag's slug using the safe syntax --}}
+{{#get "tags" filter="slug:~^'{{slug}}-'" limit="all" as |subtopics|}}
+    
+    {{#if subtopics}}
+        {{!-- HAS SUB-TAGS: Render the horizontal secondary menu --}}
+        <div class="gh-subtopic-header-nav">
+            {{#foreach subtopics}}
+                
+                {{!-- Go up TWO levels (../../) to see the actual parent tag's slug --}}
+                {{#match slug "!=" ../../slug}}
+                    
+                    {{!-- Creates clean anchor links like: /stem/#stem-astronomy-news --}}
+                    <a href="/{{../../slug}}/#{{slug}}">{{name}}</a>
+                    
+                {{/match}}
+                
+            {{/foreach}}
+        </div>
+        
+    {{else}}
+        {{!-- NO SUB-TAGS: Fallback to standard navigation --}}
+        {{navigation}}
+    {{/if}}
+
+{{/get}}
