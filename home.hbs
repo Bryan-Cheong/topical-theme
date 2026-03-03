@@ -8,103 +8,41 @@
             <h2 class="gh-section-title">Browse by Topic</h2>
 
             <div class="gh-home-topics-grid">
-                {{!-- STEM Topic Card --}}
-                <article class="gh-home-topic-card">
-                    {{#get "tags" filter="slug:stem" include="count.posts" limit="1"}}
-                        {{#foreach tags}}
+                
+                {{!-- 1. OUTER LOOP: Fetch the 3 main parent tags --}}
+                {{#get "tags" filter="slug:[stem,robotics,astronomy]" include="count.posts" limit="all"}}
+                    {{#foreach tags}}
+                        
+                        {{!-- Render the Card --}}
+                        <article class="gh-home-topic-card">
                             <a class="gh-home-topic-link" href="{{url}}">
-                                {{!-- Pull the feature image from the tag --}}
+                                {{!-- Pull the feature image from the parent tag --}}
                                 {{#if feature_image}}
                                     <figure class="gh-home-topic-image">
                                         <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
                                     </figure>
                                 {{/if}}
                                 <div class="gh-home-topic-content">
-                                    {{!-- This pulls from the "Name" field in Ghost Admin --}}
                                     <h3 class="gh-home-topic-title">{{name}}</h3>
-                    
-                                    {{!-- This pulls from the "Description" field in Ghost Admin --}}
                                     <p class="gh-home-topic-excerpt">{{description}}</p>
-
-                                    {{!-- This pulls the count of posts from the TAG --}}
                                     <span class="gh-home-topic-meta">{{count.posts}} articles</span>
                                 </div>
                             </a>
-                        {{/foreach}}
-                    {{/get}}
-                    <nav class="gh-home-topic-subtopics">
-                        <a href="/stem/#stem-robotics-news">Robotics News</a>
-                        <a href="/stem/#stem-science-experiments">Science Experiments</a>
-                        <a href="/stem/#stem-astronomy-news">Astronomy News</a>
-                        <a href="/stem/#stem-fun-math">Fun Math</a>
-                    </nav>
-                </article>
 
-                {{!-- Robotics Topic Card --}}
-                <article class="gh-home-topic-card">
-                    {{#get "tags" filter="slug:robotics" include="count.posts" limit="1"}}
-                        {{#foreach tags}}
-                            <a class="gh-home-topic-link" href="{{url}}">
-                                {{!-- Pull the feature image from the tag --}}
-                                {{#if feature_image}}
-                                    <figure class="gh-home-topic-image">
-                                        <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
-                                    </figure>
-                                {{/if}}
-                                <div class="gh-home-topic-content">
-                                    {{!-- This pulls from the "Name" field in Ghost Admin --}}
-                                    <h3 class="gh-home-topic-title">{{name}}</h3>
-                    
-                                    {{!-- This pulls from the "Description" field in Ghost Admin --}}
-                                    <p class="gh-home-topic-excerpt">{{description}}</p>
+                            {{!-- 2. INNER LOOP: Dynamically fetch subtopics for this specific card --}}
+                            <nav class="gh-home-topic-subtopics">
+                                {{#get "tags" filter="slug:~^'{{slug}}-'" limit="all" as |subtopics|}}
+                                    {{#foreach subtopics}}
+                                        {{!-- Go up two levels (../../) to grab the parent tag's slug for the URL --}}
+                                        <a href="/{{../../slug}}/#{{slug}}">{{name}}</a>
+                                    {{/foreach}}
+                                {{/get}}
+                            </nav>
+                        </article>
 
-                                    {{!-- This pulls the count of posts from the TAG --}}
-                                    <span class="gh-home-topic-meta">{{count.posts}} articles</span>
-                                </div>
-                            </a>
-                        {{/foreach}}
-                    {{/get}}
-                    <nav class="gh-home-topic-subtopics">
-                        <a href="/robotics/#robotics-by-age">By Age</a>
-                        <a href="/robotics/#robotics-kids-activities">Kids Activities</a>
-                        <a href="/robotics/#robotics-non-technical-parent">Non-Technical Parent</a>
-                        <a href="/robotics/#robotics-product-deep-dives">Product Deep-Dives</a>
-                        <a href="/robotics/#robotics-brain-development">Brain Development</a>
-                    </nav>
-                </article>
+                    {{/foreach}}
+                {{/get}}
 
-                {{!-- Astronomy Topic Card --}}
-                <article class="gh-home-topic-card">
-                    {{#get "tags" filter="slug:astronomy" include="count.posts" limit="1"}}
-                        {{#foreach tags}}
-                            <a class="gh-home-topic-link" href="{{url}}">
-                                {{!-- Pull the feature image from the tag --}}
-                                {{#if feature_image}}
-                                    <figure class="gh-home-topic-image">
-                                        <img src="{{img_url feature_image size="l"}}" alt="{{name}}">
-                                    </figure>
-                                {{/if}}
-                                <div class="gh-home-topic-content">
-                                    {{!-- This pulls from the "Name" field in Ghost Admin --}}
-                                    <h3 class="gh-home-topic-title">{{name}}</h3>
-                    
-                                    {{!-- This pulls from the "Description" field in Ghost Admin --}}
-                                    <p class="gh-home-topic-excerpt">{{description}}</p>
-
-                                    {{!-- This pulls the count of posts from the TAG --}}
-                                    <span class="gh-home-topic-meta">{{count.posts}} articles</span>
-                                </div>
-                            </a>
-                        {{/foreach}}
-                    {{/get}}
-                    <nav class="gh-home-topic-subtopics">
-                        <a href="/astronomy/#astronomy-all-about-planets-and-more">All About Planets (and More)</a>
-                        <a href="/astronomy/#astronomy-fun-facts-did-you-know">Fun Facts: Did you know?</a>
-                        <a href="/astronomy/#astronomy-cloudy-nights-stories">Cloudy Nights Stories</a>
-                        <a href="/astronomy/#astronomy-space-kids-activities">Space Kids Activities</a>
-                        <a href="/astronomy/#astronomy-book-reviews">Book Reviews</a>
-                    </nav>
-                </article>
             </div>
         </section>
 

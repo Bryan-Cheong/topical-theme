@@ -26,14 +26,12 @@
         {{#tag}}
             {{!-- 2. STANDARD PAGEHEAD LOGIC --}}
             {{#unless feature_image}}
-                {{!-- {{#match slug "!~" "stem|robotics|astronomy"}} --}}
                     <section class="gh-pagehead">
                         <h1 class="gh-pagehead-title">{{name}}</h1>
                         {{#if description}}
                             <div class="gh-pagehead-description">{{description}}</div>
                         {{/if}}
                     </section>
-                {{!-- {{/match}} --}}
             {{/unless}}
 
             {{!-- 3. THE DYNAMIC TOPIC AUTOMATION --}}
