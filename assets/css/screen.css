@@ -46,7 +46,7 @@ figcaption {
 
 /* Add padding to site wrapper to prevent content jump */
 .gh-site {
-    padding-top: 40px;
+    padding-top: 48px;
 }
 
 body:not(.is-head-stacked) .gh-head-inner {
@@ -1372,28 +1372,33 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
 
 /* 1. About/Static Pages: Needs the most space to clear the full stacked header */
 .page-template .gh-site {
-    padding-top: 140px;
+    padding-top: 120px;
 }
 
-/* 2. Blog Posts: Needs moderate space because we hid the secondary menu */
+/* 2. Blog Posts */
 .post-template .gh-site {
-    padding-top: 80px;
+    padding-top: 120px;
 }
 
 /* 3. Tag Pages: Needs space for the grid */
 /* This targets the grid ONLY when it is a direct child of the tag page main container */
 .tag-template .gh-main .gh-topic-grid {
-    padding-top: 80px !important;
+    padding-top: 40px !important;
 }
 
-/* This ensures the padding doesn't apply to the sections inside your 'STEM' or 'Robotics' or 'Astronomy' match blocks */
+/* To ensure the padding doesn't apply to topic pages */
 .tag-template .gh-subtopic-section .gh-topic-grid {
     padding-top: 0 !important;
 }
 
 /* 4. Author Pages: Needs space for the grid */
 .author-template .gh-site {
-    padding-top: 80px;
+    padding-top: 120px;
+}
+
+/* 5. Tag Pages: Needs space for the grid */
+.tag-template .gh-site {
+    padding-top: 100px;
 }
 
 /* Mobile Responsive Tweaks */

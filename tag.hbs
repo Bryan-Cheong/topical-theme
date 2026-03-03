@@ -1,23 +1,18 @@
 {{!< default}}
 
+{{!-- 1. COVER IMAGE LOGIC --}}
 {{#tag}}
     {{#if feature_image}}
         <section class="gh-cover gh-outer">
-            <img
-                class="gh-cover-image"
+            <img class="gh-cover-image"
                 srcset="{{img_url feature_image size="s"}} 300w,
                         {{img_url feature_image size="m"}} 720w,
                         {{img_url feature_image size="l"}} 960w,
                         {{img_url feature_image size="xl"}} 1200w,
                         {{img_url feature_image size="xxl"}} 2000w"
-                sizes="100vw"
-                src="{{img_url feature_image size="xl"}}"
-                alt="{{name}}"
-            >
-
+                sizes="100vw" src="{{img_url feature_image size="xl"}}" alt="{{name}}">
             <div class="gh-cover-content">
                 <h1 class="gh-cover-title">{{name}}</h1>
-
                 {{#if description}}
                     <p class="gh-cover-description">{{description}}</p>
                 {{/if}}
@@ -29,281 +24,79 @@
 <main class="gh-main gh-outer">
     <div class="gh-inner">
         {{#tag}}
+            {{!-- 2. STANDARD PAGEHEAD LOGIC --}}
             {{#unless feature_image}}
-                {{#match slug "!~" "stem|robotics|astronomy"}}
+                {{!-- {{#match slug "!~" "stem|robotics|astronomy"}} --}}
                     <section class="gh-pagehead">
                         <h1 class="gh-pagehead-title">{{name}}</h1>
-
                         {{#if description}}
                             <div class="gh-pagehead-description">{{description}}</div>
                         {{/if}}
                     </section>
-                {{/match}}
+                {{!-- {{/match}} --}}
             {{/unless}}
 
-            {{!-- STEM Topic - One Pager with Subtopic Sections --}}
-            {{#match slug "stem"}}
-                {{!-- 1. Robotics News --}}
-                <section id="stem-robotics-news" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Robotics News</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-robotics-news" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 2. Science Experiments --}}
-                <section id="stem-science-experiments" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Science Experiments</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-science-experiments" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 3. Astronomy News --}}
-                <section id="stem-astronomy-news" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Astronomy News</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-astronomy-news" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 4. Fun Math --}}
-                <section id="stem-fun-math" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Fun Math</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-fun-math" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- Topic Newsletter --}}
-                {{> "topic-newsletter"}}
-            {{/match}}
-
-            {{!-- Robotics Topic - One Pager with Subtopic Sections --}}
-            {{#match slug "robotics"}}
-                {{!-- 1. By Age --}}
-                <section id="robotics-by-age" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">By Age</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-by-age" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 2. Kids Activities --}}
-                <section id="robotics-kids-activities" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Kids Activities</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-kids-activities" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 3. Non-Technical Parent --}}
-                <section id="robotics-non-technical-parent" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Non-Technical Parent</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-robotics-non-technical-parent" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 4. Product Deep-Dives --}}
-                <section id="robotics-product-deep-dives" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Product Deep-Dives</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-product-deep-dives" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 5. Brain Development --}}
-                <section id="robotics-brain-development" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Brain Development</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-brain-development" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- Topic Newsletter --}}
-                {{> "topic-newsletter"}}
-            {{/match}}
-
-            {{!-- Astronomy Topic - One Pager with Subtopic Sections --}}
-            {{#match slug "astronomy"}}
-                {{!-- 1. All About Planets (and More) --}}
-                <section id="astronomy-all-about-planets-and-more" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">All About Planets (and More)</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-all-about-planets-and-more" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 2. Fun Facts: Did you know? --}}
-                <section id="astronomy-fun-facts-did-you-know" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Fun Facts: Did you know?</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-fun-facts-did-you-know" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 3. Cloudy Nights Stories --}}
-                <section id="astronomy-cloudy-nights-stories" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Cloudy Nights Stories</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-cloudy-nights-stories" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 4. Space Kids Activities --}}
-                <section id="astronomy-space-kids-activities" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Space Kids Activities</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-space-kids-activities" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- 5. Book Reviews --}}
-                <section id="astronomy-book-reviews" class="gh-subtopic-section">
-                    <h2 class="gh-subtopic-title">Book Reviews</h2>
-                    {{#get "posts" filter="tag:hash-subtopic-book-reviews" limit="6" include="tags,authors"}}
-                        {{#if posts}}
-                            <div class="gh-topic-content gh-topic-grid">
-                                {{#foreach posts}}
-                                    {{> "loop-grid" has_large_post=true}}
-                                {{/foreach}}
-                            </div>
-                        {{else}}
-                            <p class="gh-subtopic-empty">No posts yet in this category.</p>
-                        {{/if}}
-                    {{/get}}
-                </section>
-
-                {{!-- Topic Newsletter --}}
-                {{> "topic-newsletter"}}
-            {{/match}}
-        {{/tag}}
-
-        {{!-- 4. STANDARD FEED: The "Double Filter" Logic --}}
-        {{!-- Filter 1: Is this tag NOT 'stem'? --}}
-        {{#match tag.slug "!=" "stem"}}
-            
-            {{!-- Filter 2: Is this tag NOT 'robotics'? --}}
-            {{#match tag.slug "!=" "robotics"}}
-
-                {{!-- Filter 3: Is this tag NOT 'astronomy'? --}}
-                {{#match tag.slug "!=" "astronomy"}}
+            {{!-- 3. THE DYNAMIC TOPIC AUTOMATION --}}
+            {{!-- Fetch any tags that start with this current tag's slug --}}
+            {{#get "tags" filter="slug:~^'{{slug}}-'" limit="all" as |subtopics|}}
                 
-                    {{!-- Success! It is neither. Show the posts. --}}
+                {{#if subtopics}}
+                    {{!-- This is a Topic Page. Render the subtopics --}}
+                    {{#foreach subtopics}}
+
+                        {{!-- DEBUG BLOCK: See what Handlebars is building --}}
+                        {{!-- <div style="font-size: 11px; color: red; border: 1px solid red; padding: 6px; margin: 16px 0; background: #fff0f0;">
+                            <strong>DEBUG - Section Generator:</strong><br>
+                            Section ID: <code>id="{{slug}}"</code><br>
+                            Section Title: <code>{{name}}</code><br>
+                            Fetching posts with filter: <code>tag:{{slug}}</code>
+                        </div> --}}
+
+                        {{!-- The Dynamic Section Container --}}
+                        <section id="{{slug}}" class="gh-subtopic-section">
+                            <h2 class="gh-subtopic-title">{{name}}</h2>
+                            
+                            {{!-- Fetch the posts for THIS specific subtopic --}}
+                            {{#get "posts" filter="tag:{{slug}}" limit="12" include="tags,authors"}}
+                                {{#if posts}}
+                                    <div class="gh-topic-content gh-topic-grid">
+                                        {{#foreach posts}}
+                                            {{> "loop-grid" has_large_post=true}}
+                                        {{/foreach}}
+                                    </div>
+                                {{else}}
+                                    <p class="gh-subtopic-empty">No posts yet in this category.</p>
+                                {{/if}}
+                            {{/get}}
+                        </section>
+                    {{/foreach}}
+
+                    {{!-- Topic Newsletter at the bottom of the Topic Page --}}
+                    {{> "topic-newsletter"}}
+
+                {{else}}
+                    {{!-- This is a non-topic tag page. Show the standard feed --}}
+                    
+                    {{!-- DEBUG BLOCK: Confirming the fallback --}}
+                    {{!-- <div style="font-size: 11px; color: blue; border: 1px solid blue; padding: 6px; margin: 16px 0; background: #f0f8ff;">
+                        <strong>DEBUG - Standard Feed:</strong><br>
+                        No subtopics found for '{{../slug}}'. Falling back to standard post grid.
+                    </div> --}}
+
                     <div class="gh-topic gh-topic-grid">
                         <div class="gh-topic-content gh-feed">
-                            {{#foreach posts}}
+                            {{!-- 
+                                Go up two levels (../../) to escape the get helper 
+                                and grab the default posts array loaded for this page 
+                            --}}
+                            {{#foreach ../../posts}}
                                 {{> "loop-grid"}}
                             {{/foreach}}
                         </div>
                     </div>
-                {{/match}}
-            {{/match}}
-        {{/match}}
+                {{/if}}
+
+            {{/get}}
+        {{/tag}}
     </div>
 </main>
