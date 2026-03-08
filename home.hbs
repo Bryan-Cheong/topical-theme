@@ -25,7 +25,6 @@
                                 <div class="gh-home-topic-content">
                                     <h3 class="gh-home-topic-title">{{name}}</h3>
                                     <p class="gh-home-topic-excerpt">{{description}}</p>
-                                    <span class="gh-home-topic-meta">{{count.posts}} articles</span>
                                 </div>
                             </a>
 
@@ -38,6 +37,10 @@
                                     {{/foreach}}
                                 {{/get}}
                             </nav>
+
+                            <div class="gh-home-topic-footer">
+                                <span class="gh-home-topic-meta">{{count.posts}} articles</span>
+                            </div>
                         </article>
 
                     {{/foreach}}
