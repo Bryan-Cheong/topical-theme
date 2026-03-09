@@ -13,10 +13,10 @@
                 <a href="#browse-topics" class="gh-btn-accent">Browse Topics &rarr;</a>
                 
                 <p class="gh-home-hero-desc">
-                    Hands-on STEM guides written for parents and kids — no PhD required. Discover robotics projects, astronomy activities, and science experiments that actually excite young minds.
+                    Hands-on STEM guides written for parents and kids - no PhD required. Discover robotics projects, astronomy activities, and science experiments that actually excite young minds.
                 </p>
                 <p class="gh-home-hero-desc">
-                    Plus honest kit comparisons, budget-friendly picks, fun math ideas, book reviews, and skill-building guides — everything you need to nurture a curious child.
+                    Plus honest kit comparisons, budget-friendly picks, fun math ideas, book reviews, and skill-building guides - everything you need to nurture a curious child.
                 </p>
             </div>
 
@@ -131,6 +131,70 @@
 
                     {{/foreach}}
                 {{/get}}
+
+            </div>
+        </section>
+
+        {{!-- STARTING POINT --}}
+        <section class="gh-home-starting">
+            <h2 class="gh-section-title">Find the right starting point</h2>
+            
+            <div class="gh-starting-grid">
+                
+                {{!-- 
+                  When ready to make this dynamic, wrap this grid in this, discuss what the tags should be first:
+                  {{#get "tags" filter="slug:[little-explorers,growing-scientists,junior-engineers,budget-friendly,non-technical,quick-wins]"}}
+                      {{#foreach tags}} ... {{/foreach}}
+                  {{/get}}
+                --}}
+
+                <a href="/tag/little-explorers" class="gh-starting-card">
+                    <div class="gh-starting-icon">👶</div>
+                    <div class="gh-card-wrapper">
+                        <h3 class="gh-card-title">Little Explorers (4-6)</h3>
+                        <p class="gh-card-excerpt">Simple, sensory-first activities for the very youngest curious minds.</p>
+                    </div>
+                </a>
+
+                <a href="/tag/growing-scientists" class="gh-starting-card">
+                    <div class="gh-starting-icon">🧒</div>
+                    <div class="gh-card-wrapper">
+                        <h3 class="gh-card-title">Growing Scientists (7-9)</h3>
+                        <p class="gh-card-excerpt">Hands-on experiments and intro robotics kits that build real skills.</p>
+                    </div>
+                </a>
+
+                <a href="/tag/junior-engineers" class="gh-starting-card">
+                    <div class="gh-starting-icon">🧑‍💻</div>
+                    <div class="gh-card-wrapper">
+                        <h3 class="gh-card-title">Junior Engineers (10-12)</h3>
+                        <p class="gh-card-excerpt">Deeper projects, coding challenges, and advanced STEM experiments.</p>
+                    </div>
+                </a>
+
+                <a href="/tag/budget-friendly" class="gh-starting-card">
+                    <div class="gh-starting-icon">💸</div>
+                    <div class="gh-card-wrapper">
+                        <h3 class="gh-card-title">Budget-Friendly Picks</h3>
+                        <p class="gh-card-excerpt">Great STEM doesn't need to be expensive - curated guides under £20.</p>
+                    </div>
+                </a>
+
+                <a href="/tag/non-technical-parent" class="gh-starting-card">
+                    <div class="gh-starting-icon">🧑‍🔧</div>
+                    <div class="gh-card-wrapper">
+                        <h3 class="gh-card-title">Non-Technical Parent</h3>
+                        <p class="gh-card-excerpt">No engineering degree needed - these guides are written for you.</p>
+                    </div>
+                </a>
+
+                <a href="/tag/quick-wins" class="gh-starting-card">
+                    <div class="gh-starting-icon">⚡</div>
+                    <div class="gh-card-wrapper">
+                        <h3 class="gh-card-title">Quick Wins (Under 30 mins)</h3>
+                        <p class="gh-card-excerpt">One afternoon. Big wow. Great for busy weekdays or rainy Saturdays.</p>
+                    </div>
+                </a>
 
             </div>
         </section>
