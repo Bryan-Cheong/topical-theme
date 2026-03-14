@@ -35,15 +35,8 @@
                                         <img class="gh-head-logo-white" src="{{@custom.white_publication_logo_for_transparent_header}}" alt="{{@site.title}}">
                                     {{/if}}
                                 {{else}}
-                                    {{#is "home"}}
-                                        {{@site.title}}
-                                    {{else is "tag"}}
-                                            {{#tag}}{{name}}{{/tag}}
-                                    {{else is "post"}}
-                                            {{#post}}{{primary_tag.name}}{{else}}{{@site.title}}{{/post}}
-                                    {{else}}
-                                            {{@site.title}}
-                                    {{/is}}
+                                    {{!-- Always show the Site Title if there is no logo --}}
+                                    {{@site.title}}
                                 {{/if}}
                             </a>
                             {{#is "home"}}

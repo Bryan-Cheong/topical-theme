@@ -46,7 +46,7 @@ figcaption {
 
 /* Add padding to site wrapper to prevent content jump */
 .gh-site {
-    padding-top: 48px;
+    padding-top: 36px;
 }
 
 body:not(.is-head-stacked) .gh-head-inner {
@@ -1363,6 +1363,7 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
 @media (max-width: 767px) {
     .gh-home-topics {
         padding: 48px 0;
+        scroll-margin-top: 48px;
     }
 
     .gh-home-topic-title {
@@ -1376,18 +1377,18 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
 
 /* 1. About/Static Pages: Needs the most space to clear the full stacked header */
 .page-template .gh-site {
-    padding-top: 120px;
+    padding-top: 80px;
 }
 
 /* 2. Blog Posts */
 .post-template .gh-site {
-    padding-top: 120px;
+    padding-top: 80px;
 }
 
 /* 3. Tag Pages: Needs space for the grid */
 /* This targets the grid ONLY when it is a direct child of the tag page main container */
 .tag-template .gh-main .gh-topic-grid {
-    padding-top: 40px !important;
+    padding-top: 16px !important;
 }
 
 /* To ensure the padding doesn't apply to topic pages */
@@ -1397,19 +1398,19 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
 
 /* 4. Author Pages: Needs space for the grid */
 .author-template .gh-site {
-    padding-top: 120px;
+    padding-top: 80px;
 }
 
 /* 5. Tag Pages: Needs space for the grid */
 .tag-template .gh-site {
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 /* Mobile Responsive Tweaks */
 @media (max-width: 767px) {
     /* 1. Add space for the mobile header */
-    .page-template .gh-site { padding-top: 100px; }
-    .post-template .gh-site { padding-top: 64px; }
+    .page-template .gh-site { padding-top: 80px; }
+    .post-template .gh-site { padding-top: 48px; }
     .gh-read-next { margin-top: 64px; }
 
     /* 2. Hide desktop-only dropdown logic on mobile */
