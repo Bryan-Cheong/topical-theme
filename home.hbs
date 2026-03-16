@@ -34,10 +34,12 @@
                                         <img src="{{img_url feature_image size="m"}}" alt="{{title}}">
                                     </div>
                                 {{/if}}
-                                <div class="gh-hero-card-content">
-                                    {{#if primary_tag}}
+
+                                {{#if primary_tag}}
                                         <span class="gh-hero-card-tag">{{primary_tag.name}}</span>
-                                    {{/if}}
+                                {{/if}}
+
+                                <div class="gh-hero-card-content">
                                     <h3 class="gh-hero-card-title">{{title}}</h3>
                                 </div>
                             </a>
@@ -135,66 +137,77 @@
             </div>
         </section>
 
-        {{!-- STARTING POINT --}}
+        {{!-- FIND THE RIGHT STARTING POINT --}}
         <section class="gh-home-starting">
-            <h2 class="gh-section-title">Find the right starting point</h2>
+            <h2 class="gh-section-title">Find The Right Starting Point</h2>
             
             <div class="gh-starting-grid">
                 
-                {{!-- 
-                  When ready to make this dynamic, wrap this grid in this, discuss what the tags should be first:
-                  {{#get "tags" filter="slug:[little-explorers,growing-scientists,junior-engineers,budget-friendly,non-technical,quick-wins]"}}
-                      {{#foreach tags}} ... {{/foreach}}
-                  {{/get}}
-                --}}
+                {{!-- COLUMN 1: STEM --}}
+                <div class="gh-subtopic-column">
+                    {{#get "tags" filter="slug:[stem-science-experiments,stem-robotics-news]" limit="all"}}
+                        {{#foreach tags}}
+                            <a href="/stem/#{{slug}}" class="gh-starting-card">
+                                {{#if feature_image}}
+                                    <div class="gh-starting-image">
+                                        <img src="{{img_url feature_image size="m"}}" alt="{{name}}">
+                                    </div>
+                                {{/if}}
+                                <div class="gh-starting-content">
+                                    <span class="gh-starting-tag gh-starting-pill">STEM</span>
+                                    <div class="gh-starting-text-wrapper">
+                                        <h4 class="gh-card-title">{{name}}</h4>
+                                        <p class="gh-card-excerpt">{{description}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {{/foreach}}
+                    {{/get}}
+                </div>
 
-                <a href="/tag/little-explorers" class="gh-starting-card">
-                    <div class="gh-starting-icon">👶</div>
-                    <div class="gh-card-wrapper">
-                        <h3 class="gh-card-title">Little Explorers (4-6)</h3>
-                        <p class="gh-card-excerpt">Simple, sensory-first activities for the very youngest curious minds.</p>
-                    </div>
-                </a>
+                {{!-- COLUMN 2: ROBOTICS --}}
+                <div class="gh-subtopic-column">
+                    {{#get "tags" filter="slug:[robotics-by-age,robotics-non-technical-parent]" limit="all"}}
+                        {{#foreach tags}}
+                            <a href="/robotics/#{{slug}}" class="gh-starting-card">
+                                {{#if feature_image}}
+                                    <div class="gh-starting-image">
+                                        <img src="{{img_url feature_image size="m"}}" alt="{{name}}">
+                                    </div>
+                                {{/if}}
+                                <div class="gh-starting-content">
+                                    <span class="gh-starting-tag gh-starting-pill">Robotics</span>
+                                    <div class="gh-starting-text-wrapper">
+                                        <h4 class="gh-card-title">{{name}}</h4>
+                                        <p class="gh-card-excerpt">{{description}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {{/foreach}}
+                    {{/get}}
+                </div>
 
-                <a href="/tag/growing-scientists" class="gh-starting-card">
-                    <div class="gh-starting-icon">🧒</div>
-                    <div class="gh-card-wrapper">
-                        <h3 class="gh-card-title">Growing Scientists (7-9)</h3>
-                        <p class="gh-card-excerpt">Hands-on experiments and intro robotics kits that build real skills.</p>
-                    </div>
-                </a>
-
-                <a href="/tag/junior-engineers" class="gh-starting-card">
-                    <div class="gh-starting-icon">🧑‍💻</div>
-                    <div class="gh-card-wrapper">
-                        <h3 class="gh-card-title">Junior Engineers (10-12)</h3>
-                        <p class="gh-card-excerpt">Deeper projects, coding challenges, and advanced STEM experiments.</p>
-                    </div>
-                </a>
-
-                <a href="/tag/budget-friendly" class="gh-starting-card">
-                    <div class="gh-starting-icon">💸</div>
-                    <div class="gh-card-wrapper">
-                        <h3 class="gh-card-title">Budget-Friendly Picks</h3>
-                        <p class="gh-card-excerpt">Great STEM doesn't need to be expensive - curated guides under £20.</p>
-                    </div>
-                </a>
-
-                <a href="/tag/non-technical-parent" class="gh-starting-card">
-                    <div class="gh-starting-icon">🧑‍🔧</div>
-                    <div class="gh-card-wrapper">
-                        <h3 class="gh-card-title">Non-Technical Parent</h3>
-                        <p class="gh-card-excerpt">No engineering degree needed - these guides are written for you.</p>
-                    </div>
-                </a>
-
-                <a href="/tag/quick-wins" class="gh-starting-card">
-                    <div class="gh-starting-icon">⚡</div>
-                    <div class="gh-card-wrapper">
-                        <h3 class="gh-card-title">Quick Wins (Under 30 mins)</h3>
-                        <p class="gh-card-excerpt">One afternoon. Big wow. Great for busy weekdays or rainy Saturdays.</p>
-                    </div>
-                </a>
+                {{!-- COLUMN 3: ASTRONOMY --}}
+                <div class="gh-subtopic-column">
+                    {{#get "tags" filter="slug:[astronomy-all-about-planets-and-more,astronomy-cloudy-nights-stories]" limit="all"}}
+                        {{#foreach tags}}
+                            <a href="/astronomy/#{{slug}}" class="gh-starting-card">
+                                {{#if feature_image}}
+                                    <div class="gh-starting-image">
+                                        <img src="{{img_url feature_image size="m"}}" alt="{{name}}">
+                                    </div>
+                                {{/if}}
+                                <div class="gh-starting-content">
+                                    <span class="gh-starting-tag gh-starting-pill">Astronomy</span>
+                                    <div class="gh-starting-text-wrapper">
+                                        <h4 class="gh-card-title">{{name}}</h4>
+                                        <p class="gh-card-excerpt">{{description}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {{/foreach}}
+                    {{/get}}
+                </div>
 
             </div>
         </section>
