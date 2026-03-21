@@ -3,9 +3,10 @@
 <main class="gh-main gh-outer">
     <div class="gh-inner">
 
-        {{!-- HERO SECTION --}}
-        <section class="gh-home-hero">
-            {{!-- Left Column: Text & CTA --}}
+        {{!-- HERO & METRICS COMBINED LAYOUT --}}
+        <section class="gh-home-top-layout">
+            
+            {{!-- 1. Left Column: Text & CTA --}}
             <div class="gh-home-hero-left">
                 <h1 class="gh-home-hero-title">
                     Turn Curiosity Into <span class="highlight-accent">Science, Robots</span> &amp; the Stars
@@ -20,12 +21,10 @@
                 </p>
             </div>
 
-            {{!-- Right Column: Featured Posts Grid --}}
+            {{!-- 2. Right Column: Featured Posts Grid --}}
             <div class="gh-home-hero-right">
                 <span class="gh-home-hero-label">Featured Posts</span>
                 <div class="gh-home-hero-grid">
-                    
-                    {{!-- Fetch 4 featured posts --}}
                     {{#get "posts" filter="featured:true" limit="4" include="tags"}}
                         {{#foreach posts}}
                             <a href="{{url}}" class="gh-hero-card">
@@ -45,51 +44,39 @@
                             </a>
                         {{/foreach}}
                     {{/get}}
-
                 </div>
             </div>
+
+            {{!-- 3. Metrics Row --}}
+            <div class="gh-home-metrics-wrapper">
+                <section class="gh-home-metrics">
+                    <div class="gh-metric">
+                        <span class="gh-metric-icon">📚</span>
+                        <div class="gh-metric-content">
+                            <h4 class="gh-metric-title">
+                                {{#get "posts" limit="1"}}{{pagination.total}}{{/get}}
+                            </h4>
+                            <p class="gh-metric-desc">Articles &amp; guides</p>
+                        </div>
+                    </div>
+                    <div class="gh-metric">
+                        <span class="gh-metric-icon">🧒</span>
+                        <div class="gh-metric-content">
+                            <h4 class="gh-metric-title">Ages 4-12</h4>
+                            <p class="gh-metric-desc">And their parents</p>
+                        </div>
+                    </div>
+                    <div class="gh-metric">
+                        <span class="gh-metric-icon">🤷‍♂️</span>
+                        <div class="gh-metric-content">
+                            <h4 class="gh-metric-title">100%</h4>
+                            <p class="gh-metric-desc">Non-technical parent friendly</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
         </section>
-    </div>
-
-    {{!-- METRICS ROW --}}
-    <div class="gh-home-metrics-wrapper">
-        <div class="gh-inner">
-            <section class="gh-home-metrics">
-                
-                <div class="gh-metric">
-                    <span class="gh-metric-icon">📚</span>
-                    <div class="gh-metric-content">
-                        <h4 class="gh-metric-title">
-                            {{!-- Fetches 1 post to get access to the total pagination count --}}
-                            {{#get "posts" limit="1"}}
-                                {{pagination.total}}
-                            {{/get}}
-                        </h4>
-                        <p class="gh-metric-desc">Articles &amp; guides</p>
-                    </div>
-                </div>
-
-                <div class="gh-metric">
-                    <span class="gh-metric-icon">🧒</span>
-                    <div class="gh-metric-content">
-                        <h4 class="gh-metric-title">Ages 4-12</h4>
-                        <p class="gh-metric-desc">And their parents</p>
-                    </div>
-                </div>
-
-                <div class="gh-metric">
-                    <span class="gh-metric-icon">🤷‍♂️</span>
-                    <div class="gh-metric-content">
-                        <h4 class="gh-metric-title">100%</h4>
-                        <p class="gh-metric-desc">Non-technical parent friendly</p>
-                    </div>
-                </div>
-
-            </section>
-        </div>
-    </div>
-
-    <div class="gh-inner">
 
         {{!-- Browse by Topic - Editorial Style --}}
         <section class="gh-home-topics" id="browse-topics">

@@ -1480,14 +1480,6 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
    HERO SECTION
    ============================================================ */
 
-   .gh-home-hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-    padding: 64px 0;
-}
-
 /* --- LEFT COLUMN STYLING --- */
 .gh-home-hero-left {
     display: flex;
@@ -1657,32 +1649,6 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
     opacity: 0.9;
 }
 
-/* --- MOBILE RESPONSIVENESS --- */
-@media (max-width: 991px) {
-    .gh-home-hero {
-        grid-template-columns: 1fr;
-        gap: 48px;
-    }
-    
-    .gh-home-hero-title {
-        font-size: 3.6rem;
-    }
-}
-
-@media (max-width: 767px) {
-    .gh-home-hero {
-        padding: 48px 0;
-    }
-
-    .gh-home-hero-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .gh-hero-card {
-        aspect-ratio: 16 / 9;
-    }
-}
-
 /* ============================================================
    METRICS ROW
    ============================================================ */
@@ -1743,6 +1709,71 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
         align-items: flex-start;
         padding: 32px 0;
         gap: 24px;
+    }
+}
+
+/* ============================================================
+   TOP LAYOUT (Hero + Metrics)
+   ============================================================ */
+
+/* --- MOBILE DEFAULT (Stacked with Metrics in the middle) --- */
+.gh-home-top-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding: 48px 0;
+}
+
+/* Force the order on mobile */
+.gh-home-hero-left { order: 1; }
+.gh-home-metrics-wrapper { order: 2; } /* Metrics sit between text and cards */
+.gh-home-hero-right { order: 3; }
+
+.gh-home-hero-title {
+    font-size: 3.6rem;
+}
+.gh-home-hero-grid {
+    grid-template-columns: 1fr;
+}
+.gh-hero-card {
+    aspect-ratio: 16 / 9;
+}
+
+@media (min-width: 992px) {
+    .gh-home-top-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        align-items: center;
+        padding: 64px 0;
+    }
+
+    .gh-home-hero-left {
+        grid-column: 1 / 2;
+        order: unset;
+    }
+
+    .gh-home-hero-right {
+        grid-column: 2 / 3;
+        order: unset;
+    }
+
+    .gh-home-metrics-wrapper {
+        grid-column: 1 / -1;
+        order: unset;
+        margin-top: 32px;
+    }
+
+    .gh-home-hero-title {
+        font-size: var(--h1-size, 4.4rem);
+    }
+    
+    .gh-home-hero-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gh-hero-card {
+        aspect-ratio: 4 / 3;
     }
 }
 
@@ -1929,4 +1960,11 @@ body:is(.is-head-transparent) .gh-subtopic-header-nav a {
         opacity: 1;
         max-height: 100px;
     }
+}
+
+.gh-article-tag-container {
+    display: flex;
+    gap: 12px; /* Controls the space between the tags */
+    flex-wrap: wrap; /* Automatically drops extra tags to a new line if the screen is small */
+    margin-bottom: 16px; /* Adds breathing room below the tags */
 }
