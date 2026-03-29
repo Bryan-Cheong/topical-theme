@@ -11,7 +11,7 @@
                 {{!-- Go up TWO levels (../../) to see the actual parent tag's slug --}}
                 {{#match slug "!=" ../../slug}}
                     
-                    {{!-- Creates clean anchor links like: /stem/#stem-astronomy-news --}}
+                    {{!-- Creates clean anchor links like: /science-math/#science-math-science-experiments --}}
                     <a href="/{{../../slug}}/#{{slug}}">{{name}}</a>
                     
                 {{/match}}

@@ -85,7 +85,7 @@
             <div class="gh-home-topics-grid">
                 
                 {{!-- 1. OUTER LOOP: Fetch the 3 main parent tags --}}
-                {{#get "tags" filter="slug:[stem,robotics,astronomy]" include="count.posts" limit="all"}}
+                {{#get "tags" filter="slug:[science-math,robotics,astronomy]" include="count.posts" limit="all"}}
                     {{#foreach tags}}
                         
                         {{!-- Render the Card --}}
@@ -130,18 +130,18 @@
             
             <div class="gh-starting-grid">
                 
-                {{!-- COLUMN 1: STEM --}}
+                {{!-- COLUMN 1: SCIENCE & MATH --}}
                 <div class="gh-subtopic-column">
-                    {{#get "tags" filter="slug:[stem-science-experiments,stem-robotics-news]" limit="all"}}
+                    {{#get "tags" filter="slug:[science-math-science-experiments,science-math-dinner-table-math]" limit="all"}}
                         {{#foreach tags}}
-                            <a href="/stem/#{{slug}}" class="gh-starting-card">
+                            <a href="/science-math/#{{slug}}" class="gh-starting-card">
                                 {{#if feature_image}}
                                     <div class="gh-starting-image">
                                         <img src="{{img_url feature_image size="m"}}" alt="{{name}}">
                                     </div>
                                 {{/if}}
                                 <div class="gh-starting-content">
-                                    <span class="gh-starting-tag gh-starting-pill">STEM</span>
+                                    <span class="gh-starting-tag gh-starting-pill">Science &amp; Math</span>
                                     <div class="gh-starting-text-wrapper">
                                         <h4 class="gh-card-title">{{name}}</h4>
                                         <p class="gh-card-excerpt">{{description}}</p>
