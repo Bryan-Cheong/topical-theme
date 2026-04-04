@@ -15,3 +15,25 @@
         cover.classList.remove('loading');
     });
 })();
+
+(function () {
+    const menu = document.querySelector('.gh-head-menu');
+    if (!menu) return;
+
+    menu.addEventListener('click', function (e) {
+        const a = e.target.closest('a');
+        if (!a || !a.href) return;
+
+        let url;
+        try {
+            url = new URL(a.getAttribute('href'), window.location.href);
+        } catch {
+            return;
+        }
+
+        if (url.origin !== window.location.origin) return;
+        if (url.pathname !== window.location.pathname || !url.hash) return;
+
+        document.body.classList.remove('is-head-open');
+    });
+})();
