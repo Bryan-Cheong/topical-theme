@@ -26,7 +26,7 @@
                 <div class="gh-head-brand">
                     <div class="gh-head-brand-wrapper">
                         {{#is "home"}}<h1 class="gh-head-logo">{{/is}}
-                            <a {{^is "home" }}class="gh-head-logo" {{/is}} href="{{@site.url}}">
+                            <a {{^is "home" }}class="gh-head-logo" {{/is}} href="{{@site.url}}" aria-label="{{@site.title}}">
                                 {{#if @site.logo}}
                                     {{!-- Main Logo --}}
                                     <img src="{{@site.logo}}" alt="{{@site.title}}">
@@ -35,8 +35,8 @@
                                         <img class="gh-head-logo-white" src="{{@custom.white_publication_logo_for_transparent_header}}" alt="{{@site.title}}">
                                     {{/if}}
                                 {{else}}
-                                    {{!-- Always show the Site Title if there is no logo --}}
-                                    {{@site.title}}
+                                    {{!-- Two-tone text title (no logo) — edit spans if the site name changes --}}
+                                    <span class="gh-site-title-part gh-site-title-part--primary">Stem</span><span class="gh-site-title-part gh-site-title-part--accent">igo</span>
                                 {{/if}}
                             </a>
                             {{#is "home"}}
@@ -98,35 +98,7 @@
 
         {{{body}}}
 
-        <footer class="gh-foot gh-outer">
-            <div class="gh-foot-inner gh-inner">
-                {{#if @site.members_enabled}}
-                {{#unless @member}}
-                <section class="gh-subscribe">
-                    <h3 class="gh-subscribe-title">Subscribe to {{@site.title}}</h3>
-                    {{#if @custom.email_signup_text}}
-                    <div class="gh-subscribe-description">{{@custom.email_signup_text}}</div>
-                    {{/if}}
-                    <button class="gh-subscribe-btn gh-btn" data-portal="signup">{{> "icons/email"}} Subscribe
-                        now</button>
-                </section>
-                {{/unless}}
-                {{/if}}
-
-                <nav class="gh-foot-menu">
-                    {{navigation type="secondary"}}
-                </nav>
-
-                <div class="gh-copyright">
-                    {{#unless @custom.footer_text}}
-                    {{@site.title}} © {{date format="YYYY"}}. Powered by <a href="https://ghost.org/" target="_blank"
-                        rel="noopener">Ghost</a>
-                    {{else}}
-                    {{@custom.footer_text}}
-                    {{/unless}}
-                </div>
-            </div>
-        </footer>
+        {{> "site-footer"}}
     </div>
 
     {{#is "post, page"}}

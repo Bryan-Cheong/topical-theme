@@ -1,0 +1,62 @@
+<footer class="gh-foot gh-outer">
+    <div class="gh-foot-inner gh-inner">
+        {{#if @site.members_enabled}}
+            {{#unless @member}}
+                {{> "footer-newsletter"}}
+            {{/unless}}
+        {{/if}}
+
+        <div class="gh-foot-main">
+            <div class="gh-foot-brand">
+                <a class="gh-foot-logo" href="{{@site.url}}">
+                    {{#if @site.logo}}
+                        <img src="{{@site.logo}}" alt="{{@site.title}}">
+                    {{else}}
+                        <span class="gh-foot-logo-text">
+                            <span class="gh-site-title-part gh-site-title-part--primary">Stem</span><span class="gh-site-title-part gh-site-title-part--accent">igo</span>
+                        </span>
+                    {{/if}}
+                </a>
+                {{#if @custom.footer_description}}
+                    <p class="gh-foot-desc">{{@custom.footer_description}}</p>
+                {{else}}
+                    {{#if @site.description}}
+                        <p class="gh-foot-desc">{{@site.description}}</p>
+                    {{/if}}
+                {{/if}}
+            </div>
+
+            {{#get "tags" filter="slug:[science-math,robotics,astronomy]" include="count.posts" limit="10"}}
+                {{#foreach tags}}
+                    {{#if @first}}
+                        <nav class="gh-foot-topics" aria-labelledby="gh-foot-topics-heading">
+                            <h2 id="gh-foot-topics-heading" class="gh-foot-topics-heading">Topics</h2>
+                            <ul class="gh-foot-topic-list">
+                    {{/if}}
+                                <li>
+                                    <a href="{{url}}">{{name}}</a>
+                                </li>
+                    {{#if @last}}
+                            </ul>
+                        </nav>
+                    {{/if}}
+                {{/foreach}}
+            {{/get}}
+        </div>
+
+        <div class="gh-foot-bottom">
+            <div class="gh-foot-legal">
+                {{#if @custom.footer_text}}
+                    {{{@custom.footer_text}}}
+                {{else}}
+                    <p class="gh-foot-legal-line">
+                        {{@site.title}} &copy; {{date format="YYYY"}}{{#if @custom.footer_tagline}} &middot; {{@custom.footer_tagline}}{{/if}}
+                    </p>
+                {{/if}}
+            </div>
+            <nav class="gh-foot-legal-nav" aria-label="Footer">
+                {{navigation type="secondary"}}
+            </nav>
+        </div>
+    </div>
+</footer>

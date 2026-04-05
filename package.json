@@ -81,9 +81,16 @@
             },
             "email_signup_text": {
                 "type": "text",
-                "default": "Don't miss out on the latest news. Sign up now to get access to the library of members-only articles."
+                "default": "Weekly ideas, project guides, and honest reviews - written for busy parents and curious kids."
             },
             "footer_text": {
+                "type": "text"
+            },
+            "footer_tagline": {
+                "type": "text",
+                "default": "Where curiosity meets its match"
+            },
+            "footer_description": {
                 "type": "text"
             }
         }

@@ -1,0 +1,25 @@
+{{!-- Optional members newsletter — included when @site.members_enabled and visitor is not logged in --}}
+<section class="gh-subscribe" aria-labelledby="gh-subscribe-heading">
+    <div class="gh-subscribe-inner">
+        <p class="gh-subscribe-eyebrow">Join the Stemigo community</p>
+        <h3 id="gh-subscribe-heading" class="gh-subscribe-title">Don&rsquo;t miss a single discovery.</h3>
+        {{#if @custom.email_signup_text}}
+            <p class="gh-subscribe-description">{{@custom.email_signup_text}}</p>
+        {{else}}
+            <p class="gh-subscribe-description">Weekly ideas, project guides, and honest reviews &mdash; written for busy parents and curious kids.</p>
+        {{/if}}
+        <form class="gh-subscribe-form" data-members-form>
+            <div class="gh-subscribe-form-inner">
+                <label class="visually-hidden" for="gh-subscribe-email">Email address</label>
+                <input id="gh-subscribe-email" class="gh-subscribe-input" data-members-email type="email" autocomplete="email" required placeholder="Your email address" />
+                <button type="submit" class="gh-subscribe-submit">
+                    <span class="gh-subscribe-submit-label">Subscribe Free &rarr;</span>
+                </button>
+            </div>
+            {{!-- Ghost toggles form class loading|success|error; message nodes must use matching .loading / .success / .error classes (see ghost.org/tutorials/form) --}}
+            <p class="loading gh-subscribe-loading" aria-live="polite">Sending&hellip;</p>
+            <p class="success gh-subscribe-success" data-members-success>Thanks! Check your inbox to confirm.</p>
+            <p class="error gh-subscribe-error" data-members-error></p>
+        </form>
+    </div>
+</section>

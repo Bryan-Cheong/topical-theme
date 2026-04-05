@@ -23,7 +23,8 @@
 
             {{!-- 2. Right Column: Featured Posts Grid --}}
             <div class="gh-home-hero-right">
-                <span class="gh-home-hero-label">Featured Posts</span>
+                <h2 class="gh-section-title">Featured Articles</h2>
+                <p class="gh-home-hero-desc">The articles parents and kids are reading right now</p>
                 <div class="gh-home-hero-grid">
                     {{#get "posts" filter="featured:true" limit="4" include="tags"}}
                         {{#foreach posts}}
@@ -81,6 +82,7 @@
         {{!-- Browse by Topic - Editorial Style --}}
         <section class="gh-home-topics" id="browse-topics">
             <h2 class="gh-section-title">Browse by Topic</h2>
+            <p class="gh-home-hero-desc">Everything a curious child aged 6-12 and their parents need to know</p>
 
             <div class="gh-home-topics-grid">
                 
